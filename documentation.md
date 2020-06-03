@@ -117,3 +117,25 @@ c930af3384a6        force0234/myhello:0.0.1   "/usr/myapp"        3 seconds ago 
 Stop:
 
 `docker stop c930af3384a6` or `docker stop my_hello`
+
+## Part 3
+
+`.travis.yml` - First iteration:
+
+```
+language: go
+
+go:
+  - 1.14.x
+
+services: 
+  - docker
+
+script:
+  - go test -v
+  - go build -o ex04
+  - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin
+  - docker build -f Dockerfile -t force0234/ex04:latest ./
+  - GIT_SHA="$(git rev-parse --short HEAD"
+  - docker tag force0234/ex04:latest force0234/ex04:$GIT_SHA
+```
