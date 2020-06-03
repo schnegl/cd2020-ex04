@@ -149,4 +149,8 @@ Error parsing reference: "[secure]/ex04:" is not a valid repository/tag: invalid
 The command "docker tag [secure]/ex04:latest [secure]/ex04:$GIT_SHA" exited with 1.
 ```
 
-Mistake: missed closing bracket.
+Mistake: missed closing bracket.  
+
+
+After fixing it, the build succeeded, but I could not find the artifact in Docker Hub as...I forgt to push it...arghhhh
+
