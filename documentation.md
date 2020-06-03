@@ -139,3 +139,14 @@ script:
   - GIT_SHA="$(git rev-parse --short HEAD"
   - docker tag force0234/ex04:latest force0234/ex04:$GIT_SHA
 ```
+
+Errors:
+
+```
+The command "GIT_SHA="$(git rev-parse --short HEAD"" exited with 1.
+0.06s$ docker tag [secure]/ex04:latest [secure]/ex04:$GIT_SHA
+Error parsing reference: "[secure]/ex04:" is not a valid repository/tag: invalid reference format
+The command "docker tag [secure]/ex04:latest [secure]/ex04:$GIT_SHA" exited with 1.
+```
+
+Mistake: missed closing bracket.
