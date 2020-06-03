@@ -152,5 +152,29 @@ The command "docker tag [secure]/ex04:latest [secure]/ex04:$GIT_SHA" exited with
 Mistake: missed closing bracket.  
 
 
-After fixing it, the build succeeded, but I could not find the artifact in Docker Hub as...I forgt to push it...arghhhh
+After fixing it, the build succeeded, but I could not find the artifact in Docker Hub as...I forgt to push it...arghhhh:  
 
+Adding this to the `.travis.yml`:
+```
+  - docker push force0234/ex04:latest
+  - docker push force0234/ex04:$GIT_SHA
+```
+
+Results in this (finally):  
+
+![](./ex04.PNG)
+
+Tags:  
+
+![](./ex04_tags.PNG)
+
+Pulling it: 
+
+`docker image pull force0234/ex04:latest`  
+
+`docker images` => Output:  
+
+```
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+force0234/ex04              latest              17b361699784        5 minutes ago       318MB
+```
